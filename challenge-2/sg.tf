@@ -1,7 +1,7 @@
 resource "aws_security_group" "payment_app" {
   name        = "payment_app"
   description = "Application Security Group"
-  depends_on  = [aws_eip.example]
+  depends_on  = [aws_eip.myeip]
 
   tags = {
     Name = "mysecugrp"
@@ -10,6 +10,7 @@ resource "aws_security_group" "payment_app" {
   dynamic "ingress" {
     for_each = local.ingress_rules
     content {
+      description = ingress.value["desc"]
       from_port   = ingress.value["port"]
       to_port     = ingress.value["port"]
       protocol    = ingress.value["protocol"]
