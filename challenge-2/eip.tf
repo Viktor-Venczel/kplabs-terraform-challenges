@@ -1,5 +1,5 @@
 resource "aws_eip" "example" {
-  vpc = true
+  domain = "vpc"
   tags = {
     Name = "myeip"
   }
