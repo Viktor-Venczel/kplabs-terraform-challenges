@@ -1,4 +1,4 @@
-resource "aws_eip" "example" {
+resource "aws_eip" "myeip" {
   domain = "vpc"
   tags = {
     Name = "myeip"
